@@ -1,0 +1,21 @@
+using Rasperry Pi 3
+
+https://www.raspberrypi.org/downloads/noobs/
+
+downloaded NOOBS on 21 October 2017
+  NOOBS_lite_v2_4.zip
+
+https://www.raspberrypi.org/documentation/raspbian/updating.md
+
+sudo apt-get update
+sudo apt-get dist-upgrade
+
+https://www.raspberrypi.org/documentation/configuration/raspi-config.md
+
+sudo raspi-config
+  changed to boot to CLI
+  Changed to force sound through HDMI
+
+Fixing the IP address of the Pi
+https://www.raspberrypi.org/documentation/remote-access/ip-address.md
+
