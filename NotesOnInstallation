@@ -15,7 +15,20 @@ https://www.raspberrypi.org/documentation/configuration/raspi-config.md
 sudo raspi-config
   changed to boot to CLI
   Changed to force sound through HDMI
+  
+Connecting External HDD to Pi and making it automatic  
+https://www.raspberrypi.org/documentation/configuration/external-storage.md
 
 Fixing the IP address of the Pi
 https://www.raspberrypi.org/documentation/remote-access/ip-address.md
 
+Findin Mac Address of Pi
+https://www.raspberrypi-spy.co.uk/2012/06/finding-the-mac-address-of-a-raspberry-pi/
+
+Setting Up NAS
+https://eltechs.com/raspberry-pi-nas-guide/
+Needed to add Pi as user and restart
+
+
+Setting Up Plex
+https://thepi.io/how-to-set-up-a-raspberry-pi-plex-server/
