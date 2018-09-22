@@ -2,20 +2,22 @@ using Rasperry Pi 3
 
 https://www.raspberrypi.org/downloads/noobs/
 
-downloaded NOOBS on 21 October 2017
-  NOOBS_lite_v2_4.zip
-
-https://www.raspberrypi.org/documentation/raspbian/updating.md
-
-sudo apt-get update
-sudo apt-get dist-upgrade
+NOOBS_lite_v2_8.zip
 
 https://www.raspberrypi.org/documentation/configuration/raspi-config.md
 
 sudo raspi-config
-  changed to boot to CLI
-  Changed to force sound through HDMI
-  
+  auto login
+  enable ssh
+  setup wifi
+
+
+https://www.raspberrypi.org/documentation/raspbian/updating.md
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+
 Connecting External HDD to Pi and making it automatic  
 https://www.raspberrypi.org/documentation/configuration/external-storage.md
 
