@@ -21,6 +21,12 @@ sudo apt-get dist-upgrade
 Connecting External HDD to Pi and making it automatic  
 https://www.raspberrypi.org/documentation/configuration/external-storage.md
 
+sudo apt-get install exfat-fuse
+
+59F4-5DFC
+
+UUID=59F4-5DFC /mnt/PIHDD exfat defaults,auto,umask=000,users,rw 0 0
+
 Fixing the IP address of the Pi
 https://www.raspberrypi.org/documentation/remote-access/ip-address.md
 
@@ -36,3 +42,5 @@ https://elinux.org/R-Pi_NAS
 
 Setting Up Plex
 https://thepi.io/how-to-set-up-a-raspberry-pi-plex-server/
+
+192.168.1.11
