@@ -1,6 +1,6 @@
 import os,time
 import psycopg2
-from config import config
+import config
 
 def files(path):  
     for file in os.listdir(path):
