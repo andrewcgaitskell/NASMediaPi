@@ -44,3 +44,15 @@ Setting Up Plex
 https://thepi.io/how-to-set-up-a-raspberry-pi-plex-server/
 
 192.168.1.11
+
+Renaming Media Files and Adding Tags from Original File Locations
+
+Needed Pip3 Installed
+sudo apt-get install python3-pip
+
+Useful Diagram to get from Epoc Seconds to ISO Date & Time
+https://wiki.python.org/moin/WorkingWithTime
+
+https://packages.debian.org/jessie/python-pyexiv2
+sudo apt-get install python-pyexiv2
+
