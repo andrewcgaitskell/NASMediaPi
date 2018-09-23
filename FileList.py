@@ -113,7 +113,7 @@ def get_information(directory):
                 cur.execute(sql)
                 results = cur.fetchone()
                 # result = cur.execute("SELECT count(*) FROM data WHERE newfilename = '%s'"%str(newfilename))
-                if results > 0:
+                if results[0] > 0:
                     appendthisnumber = random.randint(1,9999)
                     appendthisstring = str(appendthisnumber).zfill(4)
                 # commit the changes to the database
