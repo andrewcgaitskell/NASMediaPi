@@ -91,7 +91,7 @@ def get_information(directory):
             createddateid = time.strftime("%Y%m%dT%H%M%S", createddatetuple)
             createdyear = createddateid[0:4]
             createdmonth = createddateid[0:6]
-            newfilename = lastmodifieddateid + "." + originalfileextension
+            newfilename = createddateid + "." + originalfileextension
             file_list.append([fullpathtooriginalfile,containingfolder,originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename])
     
     
