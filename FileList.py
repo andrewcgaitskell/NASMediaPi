@@ -12,10 +12,11 @@ def get_information(directory):
     file_list = []
     for i in os.listdir(directory):
         a = os.stat(os.path.join(directory,i))
-        filename = i
+        fullfilename = i
+        justfilename,justfileextension = fullfilename.split(".")
         lastmodifieddate = time.ctime(a.st_atime)
         createddate = time.ctime(a.st_ctime)
-        file_list.append([filename,lastmodifieddate,createddate]) #[file,most_recent_access,created]
+        file_list.append([justfilename,justfileextension,lastmodifieddate,createddate]) #[file,most_recent_access,created]
     return file_list
 
 a = get_information("/mnt/PIHDD/data")
