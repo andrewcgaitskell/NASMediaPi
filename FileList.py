@@ -46,7 +46,7 @@ print(a)
 # cur = conn.cursor()
 
 conn = None
-commands = ('DROP TABLE IF EXISTS data;')
+commands = ('DROP TABLE IF EXISTS data;');
 
 try:
     # read the connection parameters
@@ -68,8 +68,7 @@ finally:
         conn.close()
 
 commands = (
-    """
-    CREATE TABLE data (
+    '''CREATE TABLE data (
     fullpathtooriginalfile VARCHAR(255),
     containingfolder VARCHAR(255),
     originalfilename VARCHAR(255),
@@ -78,9 +77,8 @@ commands = (
     createddateid VARCHAR(255),
     createdyear VARCHAR(255),
     createdmonth VARCHAR(255),
-    newfilename VARCHAR(255)
-    )
-    """
+    newfilename VARCHAR(255)'''
+    );
     
 try:
     # read the connection parameters
