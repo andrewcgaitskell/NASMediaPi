@@ -110,7 +110,7 @@ def get_information(directory):
                 # create a new cursor
                 cur = conn.cursor()
                 # execute the INSERT statement
-                cur.execute(sql,(newfilename,))
+                cur.execute(sql,(newfilename))
                 results = cur.fetchone()
                 if results > 0:
                     appendthisnumber = random.randint(1,9999)
