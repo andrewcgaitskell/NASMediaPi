@@ -1,4 +1,5 @@
 import os,time
+import psycopg2
 
 def files(path):  
     for file in os.listdir(path):
@@ -38,3 +39,14 @@ def get_information(directory):
 a = get_information("/mnt/PIHDD/data")
 
 print(a)
+
+
+conn = psycopg2.connect('dbname=files')
+cur = conn.cursor()
+
+cur.execute('select * from data')
+
+results = cur.fetchall()
+
+for result in results:
+    print(result)
