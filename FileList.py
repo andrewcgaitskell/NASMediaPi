@@ -122,7 +122,7 @@ def get_information(directory):
                 if conn is not None:
                     conn.close()
                     
-            newfilename = createddateid + "_" + appendthis + "." + originalfileextension
+            newfilename = createddateid + "_" + str(appendthis) + "." + originalfileextension
             
             print(newfilename)
             
