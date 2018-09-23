@@ -25,10 +25,12 @@ def get_information(directory):
             # lastmodifieddate = time.ctime(a.st_atime)
             # createddate = time.ctime(a.st_ctime)
             lastmodifieddatetuple = time.gmtime(a.st_atime)
-            lastmodifieddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", lastmodifieddatetuple)
+            # lastmodifieddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", lastmodifieddatetuple)
+            lastmodifieddateid = time.strftime("%Y%m%d%H%M%S", lastmodifieddatetuple)
             createddatetuple = time.gmtime(a.st_ctime)
-            createddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", createddatetuple)
-            file_list.append([fullpathtofile,containingfolder,filename,fileextension,lastmodifieddateiso,createddateiso]) #[file,most_recent_access,created]
+            # createddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", createddatetuple)
+            createddateid = time.strftime("%Y%m%dT%H%M%S", createddatetuple)
+            file_list.append([fullpathtofile,containingfolder,filename,fileextension,lastmodifieddateid,createddateid]) #[file,most_recent_access,created]
     return file_list
 
 a = get_information("/mnt/PIHDD/data")
