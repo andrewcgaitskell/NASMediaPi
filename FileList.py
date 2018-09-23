@@ -4,16 +4,19 @@ def files(path):
     for file in os.listdir(path):
         if os.path.isfile(os.path.join(path, file)):
             yield file
-
+            
+for file in files("."):  
+    print (file);
+    
 def get_information(directory):
     file_list = []
     for i in os.listdir(directory):
         a = os.stat(os.path.join(directory,i))
-        file_list.append([i,time.ctime(a.st_atime),time.ctime(a.st_ctime)]) #[file,most_recent_access,created]
+        filename = i
+        lastmodifieddate = time.ctime(a.st_atime)
+        createddate = time.ctime(a.st_ctime)
+        file_list.append([filename,lastmodifieddate,createddate]) #[file,most_recent_access,created]
     return file_list
-
-for file in files("."):  
-    print (file);
 
 a = get_information("/mnt/PIHDD/data")
 
