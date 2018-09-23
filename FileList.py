@@ -95,7 +95,7 @@ def get_information(directory):
             newfilename = createddateid + "_"+"0000"+"." + originalfileextension
             file_list.append([fullpathtooriginalfile,containingfolder,originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename])
             
-            sql = "SELECT count(*) from data"; # WHERE newfilename = %s"
+            sql = "SELECT count(*) from data WHERE newfilename = %s"
             # result = cur.execute("SELECT * FROM users WHERE username = '%s'"%str(username))
             
             appendthisstring = "0000"
@@ -110,7 +110,7 @@ def get_information(directory):
                 # create a new cursor
                 cur = conn.cursor()
                 # execute the INSERT statement
-                cur.execute(sql)
+                cur.execute(sql,[newfilename])
                 results = cur.fetchone()
                 # result = cur.execute("SELECT count(*) FROM data WHERE newfilename = '%s'"%str(newfilename))
                 if results[0] > 0:
