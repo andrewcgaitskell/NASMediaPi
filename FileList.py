@@ -125,6 +125,8 @@ def get_information(directory):
             newfilename += "_"
             newfilename += str(appendthis)
             
+            print(newfilename)
+            
             sql = """INSERT INTO data(fullpathtooriginalfile,containingfolder,
             originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename)
             VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s);"""
