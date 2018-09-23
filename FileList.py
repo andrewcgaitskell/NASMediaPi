@@ -1,6 +1,7 @@
 import os,time
 import psycopg2
 from config import Config
+import random
 
 
 # conn = psycopg2.connect('dbname=files')
@@ -93,11 +94,40 @@ def get_information(directory):
             createdmonth = createddateid[0:6]
             newfilename = createddateid + "." + originalfileextension
             file_list.append([fullpathtooriginalfile,containingfolder,originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename])
-    
-    
+            
+            sql = 'SELECT count(*) from data WHERE newfilename = %s;'
+            
+            appendthis = 0
+            
+            conn = None
+            try:
+                # read database configuration
+                
+                # connect to the PostgreSQL database
+                conn = psycopg2.connect('dbname=files')
+                # create a new cursor
+                cur = conn.cursor()
+                # execute the INSERT statement
+                cur.execute(sql,newfilename)
+                results = cur.fetchone()
+                if results > 0:
+                    appendthis = random.randint(1,10000)
+                # commit the changes to the database
+                conn.commit()
+                # close communication with the database
+                cur.close()
+            except (Exception, psycopg2.DatabaseError) as error:
+                print(error)
+            finally:
+                if conn is not None:
+                    conn.close()
+                    
+            newfilename = newfilename + "_" + str(appendthis)
+            
             sql = """INSERT INTO data(fullpathtooriginalfile,containingfolder,
             originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename)
             VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s);"""
+            
             conn = None
             try:
                 # read database configuration
