@@ -18,7 +18,7 @@ def get_information(directory):
         if fullfilename[0] != "." :
             foldersaslist = fullpathtofile.split(".")
             foldercount = len(foldersaslist)
-            containingfolder = foldersaslist[foldercount]
+            containingfolder = foldersaslist[foldercount-1]
             justfilenamesplit = fullfilename.split(".")
             fileextension = justfilenamesplit[1]
             filename = justfilenamesplit[0]
