@@ -22,9 +22,13 @@ def get_information(directory):
             justfilenamesplit = fullfilename.split(".")
             fileextension = justfilenamesplit[1]
             filename = justfilenamesplit[0]
-            lastmodifieddate = time.ctime(a.st_atime)
-            createddate = time.ctime(a.st_ctime)
-            file_list.append([containingfolder,filename,fileextension,lastmodifieddate,createddate]) #[file,most_recent_access,created]
+            # lastmodifieddate = time.ctime(a.st_atime)
+            # createddate = time.ctime(a.st_ctime)
+            lastmodifieddatetuple = time.gmtime(a.st_atime)
+            lastmodifieddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", lastmodifieddatetuple)
+            createddatetuple = time.gmtime(a.st_ctime)
+            createddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", createddatetuple)
+            file_list.append([fullpathtofile,containingfolder,filename,fileextension,lastmodifieddateiso,createddateiso]) #[file,most_recent_access,created]
     return file_list
 
 a = get_information("/mnt/PIHDD/data")
