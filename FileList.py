@@ -13,16 +13,16 @@ def get_information(directory):
     file_list = []
     for i in os.listdir(directory):
         a = os.stat(os.path.join(directory,i))
-        fullpathtofile = os.path.join(directory,i)
+        fullpathtooriginalfile = os.path.join(directory,i)
         # print(b)
         fullfilename = i
         if fullfilename[0] != "." :
-            foldersaslist = fullpathtofile.split("/")
+            foldersaslist = fullpathtooriginalfile.split("/")
             foldercount = len(foldersaslist)
             containingfolder = foldersaslist[foldercount-2]
             justfilenamesplit = fullfilename.split(".")
-            fileextension = justfilenamesplit[1]
-            filename = justfilenamesplit[0]
+            originalfileextension = justfilenamesplit[1]
+            originalfilename = justfilenamesplit[0]
             # lastmodifieddate = time.ctime(a.st_atime)
             # createddate = time.ctime(a.st_ctime)
             lastmodifieddatetuple = time.gmtime(a.st_atime)
@@ -32,8 +32,9 @@ def get_information(directory):
             # createddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", createddatetuple)
             createddateid = time.strftime("%Y%m%dT%H%M%S", createddatetuple)
             createdyear = createddateid[0:4]
-            createdmonth = createddateid[4:6]
-            file_list.append([fullpathtofile,containingfolder,filename,fileextension,lastmodifieddateid,createddateid,createdyear,createdmonth])
+            createdmonth = createddateid[0:6]
+            newfilename = lastmodifieddateid & "." & originalfileextension
+            file_list.append([fullpathtooriginalfile,containingfolder,originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename])
     return file_list
 
 a = get_information("/mnt/PIHDD/data")
@@ -44,9 +45,61 @@ print(a)
 conn = psycopg2.connect('dbname=files')
 cur = conn.cursor()
 
-cur.execute('select * from data')
+commands = ('DROP TABLE IF EXISTS data;')
 
-results = cur.fetchall()
+conn = None
+try:
+    # read the connection parameters
+    params = config()
+    # connect to the PostgreSQL server
+    conn = psycopg2.connect(**params)
+    cur = conn.cursor()
+    # create table one by one
+    for command in commands:
+        cur.execute(command)
+    # close communication with the PostgreSQL database server
+    cur.close()
+    # commit the changes
+    conn.commit()
+except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+finally:
+    if conn is not None:
+        conn.close()
 
-for result in results:
-    print(result)
+commands = (
+    """
+    CREATE TABLE data (
+    fullpathtooriginalfile VARCHAR(255),
+    containingfolder VARCHAR(255),
+    originalfilename VARCHAR(255),
+    originalfileextension VARCHAR(255),
+    lastmodifieddateid VARCHAR(255),
+    createddateid VARCHAR(255),
+    createdyear VARCHAR(255),
+    createdmonth VARCHAR(255),
+    newfilename VARCHAR(255)
+    )
+    """
+   
+conn = None
+try:
+    # read the connection parameters
+    params = config()
+    # connect to the PostgreSQL server
+    conn = psycopg2.connect(**params)
+    cur = conn.cursor()
+    # create table one by one
+    for command in commands:
+        cur.execute(command)
+    # close communication with the PostgreSQL database server
+    cur.close()
+    # commit the changes
+    conn.commit()
+except (Exception, psycopg2.DatabaseError) as error:
+    print(error)
+finally:
+    if conn is not None:
+        conn.close()
+
+
