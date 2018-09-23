@@ -88,7 +88,7 @@ def get_information(directory):
             lastmodifieddateid = time.strftime("%Y%m%d%H%M%S", lastmodifieddatetuple)
             createddatetuple = time.gmtime(a.st_ctime)
             # createddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", createddatetuple)
-            createddateid = time.strftime("%Y%m%dT%H%M%S", createddatetuple)
+            createddateid = time.strftime("%Y%m%d%H%M%S", createddatetuple)
             createdyear = createddateid[0:4]
             createdmonth = createddateid[0:6]
             newfilename = createddateid + "." + originalfileextension
