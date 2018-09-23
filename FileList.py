@@ -15,4 +15,6 @@ def get_information(directory):
 for file in files("."):  
     print (file);
 
-print get_information("/mnt/PIHDD/data")
+a = get_information("/mnt/PIHDD/data")
+
+print(a)
