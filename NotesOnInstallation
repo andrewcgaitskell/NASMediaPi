@@ -56,3 +56,8 @@ https://wiki.python.org/moin/WorkingWithTime
 https://packages.debian.org/jessie/python-pyexiv2
 sudo apt-get install python-pyexiv2
 
+Installing Postgres
+https://opensource.com/article/17/10/set-postgres-database-your-raspberry-pi
+
+sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y
+
