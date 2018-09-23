@@ -76,7 +76,7 @@ command = ("""CREATE TABLE data (
     createddateid VARCHAR(255),
     createdyear VARCHAR(255),
     createdmonth VARCHAR(255),
-    newfilename VARCHAR(255)""");
+    newfilename VARCHAR(255));""");
     
 try:
     # read the connection parameters
