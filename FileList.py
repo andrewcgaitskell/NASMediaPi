@@ -97,7 +97,9 @@ def get_information(directory):
             
             sql = 'SELECT count(*) from data WHERE newfilename = %s;'
             
-            appendthis = 0
+            
+            appendthisstring = "0000"
+            appendthisnumber = 0
             
             conn = None
             try:
