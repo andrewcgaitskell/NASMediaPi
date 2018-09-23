@@ -12,6 +12,8 @@ def get_information(directory):
     file_list = []
     for i in os.listdir(directory):
         a = os.stat(os.path.join(directory,i))
+        b = os.path.join(directory,i)
+        print(b)
         fullfilename = i
         if fullfilename[0] != "." :
             justfilenamesplit = fullfilename.split(".")
