@@ -30,8 +30,8 @@ def get_information(directory):
             createddatetuple = time.gmtime(a.st_ctime)
             # createddateiso = time.strftime("%Y-%m-%dT%H:%M:%S", createddatetuple)
             createddateid = time.strftime("%Y%m%dT%H%M%S", createddatetuple)
-            createdyear = createddateid[0:3]
-            createdmonth = createddateid[4:5]
+            createdyear = createddateid[0:4]
+            createdmonth = createddateid[4:6]
             file_list.append([fullpathtofile,containingfolder,filename,fileextension,lastmodifieddateid,createddateid,createdyear,createdmonth])
     return file_list
 
