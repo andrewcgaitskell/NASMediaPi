@@ -67,6 +67,24 @@ def files(path):
             
 for file in files("."):  
     print (file);
+
+# def getListOfFiles(dirName):
+    # create a list of file and sub directories 
+    # names in the given directory 
+    # listOfFile = os.listdir(dirName)
+    # allFiles = list()
+    # Iterate over all the entries
+    # for entry in listOfFile:
+        # Create full path
+        # fullPath = os.path.join(dirName, entry)
+        # If entry is a directory then get the list of files in this directory 
+        # if os.path.isdir(fullPath):
+        #     allFiles = allFiles + getListOfFiles(fullPath)
+        # else:
+        #     allFiles.append(fullPath)
+                
+    # return allFiles
+    
     
 def get_information(directory):
     file_list = []
@@ -74,6 +92,8 @@ def get_information(directory):
         a = os.stat(os.path.join(directory,i))
         fullpathtooriginalfile = os.path.join(directory,i)
         # print(b)
+        if os.path.isdir(fullpathtooriginalfile):
+            get_information(fullpathtooriginalfile)
         fullfilename = i
         if fullfilename[0] != "." :
             foldersaslist = fullpathtooriginalfile.split("/")
