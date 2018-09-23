@@ -80,7 +80,10 @@ def get_information(directory):
             foldercount = len(foldersaslist)
             containingfolder = foldersaslist[foldercount-2]
             justfilenamesplit = fullfilename.split(".")
-            originalfileextension = justfilenamesplit[1]
+            try:
+                originalfileextension = justfilenamesplit[1]
+            except:
+                originalfileextension = ""
             originalfilename = justfilenamesplit[0]
             # lastmodifieddate = time.ctime(a.st_atime)
             # createddate = time.ctime(a.st_ctime)
