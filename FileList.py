@@ -110,7 +110,7 @@ def get_information(directory):
                 # create a new cursor
                 cur = conn.cursor()
                 # execute the INSERT statement
-                cur.execute(sql,(newfilename,))
+                cur.execute(sql,[newfilename])
                 results = cur.fetchone()
                 # result = cur.execute("SELECT count(*) FROM data WHERE newfilename = '%s'"%str(newfilename))
                 if results > 0:
