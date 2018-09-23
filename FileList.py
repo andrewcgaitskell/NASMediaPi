@@ -97,7 +97,7 @@ def get_information(directory):
     
             sql = """INSERT INTO data(fullpathtooriginalfile,containingfolder,
             originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename)
-            VALUES(%s);"""
+            VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s);"""
             conn = None
             try:
                 # read database configuration
