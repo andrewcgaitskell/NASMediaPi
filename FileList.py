@@ -92,7 +92,7 @@ def get_information(directory):
             createddateid = time.strftime("%Y%m%d%H%M%S", createddatetuple)
             createdyear = createddateid[0:4]
             createdmonth = createddateid[0:6]
-            newfilename = createddateid + "." + originalfileextension
+            newfilename = createddateid + "_"+"0000"+"." + originalfileextension
             file_list.append([fullpathtooriginalfile,containingfolder,originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename])
             
             sql = 'SELECT count(*) from data WHERE newfilename = %s;'
@@ -122,14 +122,13 @@ def get_information(directory):
                 if conn is not None:
                     conn.close()
                     
-            newfilename += "_"
-            newfilename += str(appendthis)
+            newfilename = createddateid + "_" + appendthis + "." + originalfileextension
             
             print(newfilename)
             
             sql = """INSERT INTO data(fullpathtooriginalfile,containingfolder,
             originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename)
-            VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s);"""
+            VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"""
             
             conn = None
             try:
