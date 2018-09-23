@@ -51,9 +51,10 @@ commands = ('DROP TABLE IF EXISTS data;');
 
 try:
     # read the connection parameters
-    params = Config()
+    # params = Config()
     # connect to the PostgreSQL server
-    conn = psycopg2.connect(**params)
+    # conn = psycopg2.connect(**params)
+    conn = psycopg2.connect('dbname=files')
     cur = conn.cursor()
     # create table one by one
     for command in commands:
@@ -85,7 +86,8 @@ try:
     # read the connection parameters
     params = Config()
     # connect to the PostgreSQL server
-    conn = psycopg2.connect(**params)
+    # conn = psycopg2.connect(**params)
+    conn = psycopg2.connect('dbname=files')
     cur = conn.cursor()
     # create table one by one
     for command in commands:
