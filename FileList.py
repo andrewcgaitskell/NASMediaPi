@@ -42,12 +42,12 @@ a = get_information("/mnt/PIHDD/data")
 print(a)
 
 
-conn = psycopg2.connect('dbname=files')
-cur = conn.cursor()
-
-commands = ('DROP TABLE IF EXISTS data;')
+# conn = psycopg2.connect('dbname=files')
+# cur = conn.cursor()
 
 conn = None
+commands = ('DROP TABLE IF EXISTS data;')
+
 try:
     # read the connection parameters
     params = config()
@@ -81,8 +81,7 @@ commands = (
     newfilename VARCHAR(255)
     )
     """
-   
-conn = None
+    
 try:
     # read the connection parameters
     params = config()
