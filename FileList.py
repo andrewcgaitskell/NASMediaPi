@@ -47,7 +47,7 @@ print(a)
 # cur = conn.cursor()
 
 conn = None
-commands = ("DROP TABLE IF EXISTS data;")
+command = ("DROP TABLE IF EXISTS data;")
 
 try:
     # read the connection parameters
@@ -56,9 +56,7 @@ try:
     # conn = psycopg2.connect(**params)
     conn = psycopg2.connect('dbname=files')
     cur = conn.cursor()
-    # create table one by one
-    for command in commands:
-        cur.execute(command)
+    cur.execute(command)
     # close communication with the PostgreSQL database server
     cur.close()
     # commit the changes
@@ -69,7 +67,7 @@ finally:
     if conn is not None:
         conn.close()
 
-commands = ("""CREATE TABLE data (
+command = ("""CREATE TABLE data (
     fullpathtooriginalfile VARCHAR(255),
     containingfolder VARCHAR(255),
     originalfilename VARCHAR(255),
@@ -78,8 +76,7 @@ commands = ("""CREATE TABLE data (
     createddateid VARCHAR(255),
     createdyear VARCHAR(255),
     createdmonth VARCHAR(255),
-    newfilename VARCHAR(255)'''
-    """);
+    newfilename VARCHAR(255)""");
     
 try:
     # read the connection parameters
@@ -89,8 +86,7 @@ try:
     conn = psycopg2.connect('dbname=files')
     cur = conn.cursor()
     # create table one by one
-    for command in commands:
-        cur.execute(command)
+    cur.execute(command)
     # close communication with the PostgreSQL database server
     cur.close()
     # commit the changes
