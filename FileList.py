@@ -13,7 +13,7 @@ def get_information(directory):
     for i in os.listdir(directory):
         a = os.stat(os.path.join(directory,i))
         fullfilename = i
-        if fullfilename[1] != "." :
+        if fullfilename[0] != "." :
             justfilenamesplit = fullfilename.split(".")
             lastmodifieddate = time.ctime(a.st_atime)
             createddate = time.ctime(a.st_ctime)
