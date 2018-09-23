@@ -122,7 +122,8 @@ def get_information(directory):
                 if conn is not None:
                     conn.close()
                     
-            newfilename = newfilename + "_" + str(appendthis)
+            newfilename += "_"
+            newfilename += str(appendthis)
             
             sql = """INSERT INTO data(fullpathtooriginalfile,containingfolder,
             originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename)
