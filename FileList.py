@@ -1,6 +1,6 @@
 import os,time
 import psycopg2
-import config
+from config import Config
 
 def files(path):  
     for file in os.listdir(path):
@@ -51,7 +51,7 @@ commands = ('DROP TABLE IF EXISTS data;');
 
 try:
     # read the connection parameters
-    params = config()
+    params = Config()
     # connect to the PostgreSQL server
     conn = psycopg2.connect(**params)
     cur = conn.cursor()
@@ -83,7 +83,7 @@ commands = (
     
 try:
     # read the connection parameters
-    params = config()
+    params = Config()
     # connect to the PostgreSQL server
     conn = psycopg2.connect(**params)
     cur = conn.cursor()
