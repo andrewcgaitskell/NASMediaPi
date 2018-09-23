@@ -110,10 +110,10 @@ def get_information(directory):
                 # create a new cursor
                 cur = conn.cursor()
                 # execute the INSERT statement
-                # cur.execute(sql,str(newfilename))
-                # results = cur.fetchone()
-                result = cur.execute("SELECT count(*) FROM data WHERE newfilename = '%s'"%str(newfilename))
-                if result > 0:
+                cur.execute(sql,(newfilename,))
+                results = cur.fetchone()
+                # result = cur.execute("SELECT count(*) FROM data WHERE newfilename = '%s'"%str(newfilename))
+                if results > 0:
                     appendthisnumber = random.randint(1,9999)
                     appendthisstring = str(appendthisnumber).zfill(4)
                 # commit the changes to the database
