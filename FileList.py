@@ -95,7 +95,7 @@ def get_information(directory):
             newfilename = createddateid + "_"+"0000"+"." + originalfileextension
             file_list.append([fullpathtooriginalfile,containingfolder,originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename])
             
-            sql = 'SELECT count(*) from data WHERE newfilename = %s;'
+            sql = 'SELECT count(*) from data WHERE newfilename = ''%s'';'
             
             
             appendthisstring = "0000"
