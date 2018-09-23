@@ -111,7 +111,8 @@ def get_information(directory):
                 cur.execute(sql,newfilename)
                 results = cur.fetchone()
                 if results > 0:
-                    appendthis = random.randint(1,10000)
+                    appendthisnumber = random.randint(1,9999)
+                    appendthisstring = str(appendthisnumber).zfill(4)
                 # commit the changes to the database
                 conn.commit()
                 # close communication with the database
@@ -122,13 +123,13 @@ def get_information(directory):
                 if conn is not None:
                     conn.close()
                     
-            newfilename = createddateid + "_" + str(appendthis) + "." + originalfileextension
+            newfilename = createddateid + "_" + appendthisstring + "." + originalfileextension
             
             print(newfilename)
             
             sql = """INSERT INTO data(fullpathtooriginalfile,containingfolder,
             originalfilename,originalfileextension,lastmodifieddateid,createddateid,createdyear,createdmonth,newfilename)
-            VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"""
+            VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s);"""
             
             conn = None
             try:
