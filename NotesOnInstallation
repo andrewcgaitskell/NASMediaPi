@@ -65,3 +65,6 @@ https://opensource.com/article/17/10/set-postgres-database-your-raspberry-pi
 
 sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y
 
+Using Apple TV Gen 2 as Plex Viewer
+
+https://github.com/iBaa/PlexConnect/wiki/Install-Guide-Linux
