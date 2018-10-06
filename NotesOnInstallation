@@ -29,7 +29,11 @@ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
 
 59F4-5DFC
 
-UUID=59F4-5DFC /mnt/PIHDD exfat defaults,auto,umask=000,users,rw 0 0
+max 005C-663A /dev/sda1
+
+UUID="36557FF8557FB7E7"
+
+UUID="36557FF8557FB7E7" /mnt/PIHDD exfat defaults,auto,umask=000,users,rw 0 0
 
 Fixing the IP address of the Pi
 https://www.raspberrypi.org/documentation/remote-access/ip-address.md
