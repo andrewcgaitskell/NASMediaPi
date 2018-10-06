@@ -23,6 +23,10 @@ https://www.raspberrypi.org/documentation/configuration/external-storage.md
 
 sudo apt-get install exfat-fuse
 
+---------- max plex --------
+
+sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
+
 59F4-5DFC
 
 UUID=59F4-5DFC /mnt/PIHDD exfat defaults,auto,umask=000,users,rw 0 0
